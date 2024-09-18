@@ -17,6 +17,25 @@ jobs:
         - name: Test Cowsay
           run: grep -i "cat" dragon.txt
 
+        - name: upload artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: my-artifact
+            path: dragon.txt
+    deploy:
+        needs: ascii_job
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+        - name: upload artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: my-artifact
+
+        - name: Test Cowsay
+          run: grep -i "cat" dragon.txt
+
         - name: print
           run: cat dragon.txt
 
