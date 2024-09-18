@@ -5,9 +5,14 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
         - name: welcome message
           run: echo "My first gh actions job"
+
         - name: list files
           run: ls
+
         - name: Read file
           run: cat README.md
