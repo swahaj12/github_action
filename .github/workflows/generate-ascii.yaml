@@ -1,4 +1,5 @@
 name: My second workflow
+
 on: push
 jobs:
     ascii_job:
@@ -11,13 +12,13 @@ jobs:
           run: sudo apt-get install cowsay -y
 
         - name: Execute Cowsay
-          run: cowsay -f cat "hello this is me cat" >> cat.txt
+          run: cowsay -f dragon "hello this is me cat" >> dragon.txt
 
         - name: Test Cowsay
-          run: grep -i "cat" cat.txt
+          run: grep -i "cat" dragon.txt
 
         - name: print
-          run: cat cat.txt
+          run: cat dragon.txt
 
         - name: checkout
           run: ls
