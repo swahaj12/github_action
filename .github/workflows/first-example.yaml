@@ -11,7 +11,7 @@ jobs:
         - name: welcome message
           run: |
             echo "My first gh actions job"
-            ls cat README.md
+            ls README.md
 
 
         - name: Cowsay
