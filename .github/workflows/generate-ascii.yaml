@@ -1,0 +1,23 @@
+name: My second workflow
+on: push
+jobs:
+    ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
+        - name: install cowsay
+          run: sudo apt-get install cowsay -y
+
+        - name: Execute Cowsay
+          run: cowsay -f cat "hello this is me cat" >> cat.txt
+
+        - name: Test Cowsay
+          run: grep -i "cat" cat.txt
+
+        - name: print
+          run: cat cat.txt
+
+        - name: checkout
+          run: ls
